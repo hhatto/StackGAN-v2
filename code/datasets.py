@@ -61,7 +61,7 @@ class ImageFolder(data.Dataset):
         root = os.path.join(root, split_dir)
         classes, class_to_idx = self.find_classes(root, custom_classes)
         imgs = self.make_dataset(classes, class_to_idx)
-        if imgs:
+        if not imgs:
             raise(RuntimeError("Found 0 images in subfolders of: " + root + "\n"
                                "Supported image extensions are: " + ",".join(IMG_EXTENSIONS)))
 
